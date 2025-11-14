@@ -74,11 +74,12 @@
 </nav>
 
 
-  <!-- Timer -->
+<!-- Timer -->
 <div id="fixed-timer" class="hidden-timer">
   <p class="timer-heading">The next event happening in</p>
-  <p id="timer-text">21:45:00</p>
+  <p id="timer-text">00:00:00</p>
 </div>
+
 
 
   <!-- Hero Section -->
@@ -366,43 +367,72 @@
   </script>
 
 <script>
-  // Total countdown duration: 21 hours 45 minutes
-  const totalSeconds = (21 * 3600) + (45 * 60);
+// ---------------------------
+// HERO VIDEO AUTOPLAY FIX
+// ---------------------------
+const heroVideo = document.querySelector(".hero-video");
 
-  // Check if an end time already exists in localStorage
-  let endTime = localStorage.getItem("eventEndTime");
+if (heroVideo) {
+  heroVideo.muted = true; // required for autoplay
+  heroVideo.play().catch(() => {
+    console.log("Autoplay blocked by browser.");
+  });
+}
 
-  // If no end time stored, create one now
-  if (!endTime) {
-    endTime = Date.now() + totalSeconds * 1000;
-    localStorage.setItem("eventEndTime", endTime);
+// ---------------------------
+// SITE LOADER (3 SECONDS)
+// ---------------------------
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.querySelector(".loader").style.display = "none";
+  }, 3000);
+});
+
+// ---------------------------
+// CONTINUOUS COUNTDOWN TIMER
+// ---------------------------
+
+// 13 hours 47 minutes in ms
+const TIMER_DURATION =
+  (13 * 60 * 60 * 1000) +
+  (47 * 60 * 1000);
+
+let deadline = localStorage.getItem("siteDeadline");
+
+if (!deadline) {
+  deadline = Date.now() + TIMER_DURATION;
+  localStorage.setItem("siteDeadline", deadline);
+}
+
+deadline = parseInt(deadline);
+
+function updateTimer() {
+  const now = Date.now();
+  const timeLeft = deadline - now;
+
+  const timerText = document.getElementById("timer-text");
+
+  if (!timerText) return;
+
+  if (timeLeft <= 0) {
+    timerText.textContent = "00:00:00";
+    return;
   }
 
-  function updateTimer() {
-    const now = Date.now();
-    const timeLeft = Math.floor((endTime - now) / 1000);
+  const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+  const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
+  const seconds = Math.floor((timeLeft / 1000) % 60);
 
-    // When timer finishes
-    if (timeLeft <= 0) {
-      document.getElementById("timer-text").textContent = "00:00:00";
-      return;
-    }
+  timerText.textContent =
+    `${hours.toString().padStart(2, "0")}:` +
+    `${minutes.toString().padStart(2, "0")}:` +
+    `${seconds.toString().padStart(2, "0")}`;
+}
 
-    let hours = Math.floor(timeLeft / 3600);
-    let minutes = Math.floor((timeLeft % 3600) / 60);
-    let seconds = timeLeft % 60;
+setInterval(updateTimer, 1000);
+updateTimer();
 
-    // Format numbers
-    hours = hours < 10 ? "0" + hours : hours;
-    minutes = minutes < 10 ? "0" + minutes : minutes;
-    seconds = seconds < 10 ? "0" + seconds : seconds;
 
-    document.getElementById("timer-text").textContent = `${hours}:${minutes}:${seconds}`;
-  }
-
-  // Update every second
-  setInterval(updateTimer, 1000);
-  updateTimer();
 </script>
 
 <script>
