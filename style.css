@@ -169,7 +169,6 @@ h1 {
 /* Hero Section */
 .hero {
   height: 100vh;
-  background: url('./MacBook\ Pro\ 14_\ -\ 5\ \(2\).png') no-repeat center center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -177,21 +176,39 @@ h1 {
   color: white;
   position: relative;
   margin-top: 90px; /* adjust based on navbar height */
+  overflow: hidden;
 }
 
-.hero::after {
+/* Video Background */
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+/* Overlay */
+.hero-overlay {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.45); /* dark overlay for readability */
+  background: rgba(0, 0, 0, 0.7); /* dark overlay */
+  z-index: 1;
 }
 
+/* Hero Content */
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 800px;
   padding: 0 20px;
 }
@@ -210,7 +227,14 @@ h1 {
   line-height: 1.6;
 }
 
-/* Responsive Text Sizes */
+/* Hero Logo */
+.hero-logo {
+  width: 120px; /* adjust size */
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Responsive Text & Logo */
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2rem;
@@ -219,19 +243,9 @@ h1 {
   .hero p {
     font-size: 1rem;
   }
-}
 
-/* Hero Logo */
-.hero-logo {
-  width: 120px; /* adjust size */
-  height: auto;
-  margin-bottom: 20px;
-}
-
-/* Responsive Logo */
-@media (max-width: 768px) {
   .hero-logo {
-    width: 80px; /* smaller on mobile */
+    width: 80px;
     margin-bottom: 15px;
   }
 }
@@ -371,6 +385,7 @@ h1 {
     .carousel-section h1 {
       font-weight: 900;
       font-size: 2.5rem;
+      letter-spacing: -2px;
       margin-bottom: 30px;
     }
 
@@ -616,13 +631,17 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: #FFF5E9;
+  background: rgba(255, 245, 233, 0.5); /* slightly transparent for blur to show */
+  backdrop-filter: blur(10px);           /* blur the background behind */
+  -webkit-backdrop-filter: blur(10px);   /* Safari support */
+  
   color: #101010;
   text-align: center;
   padding: 10px 0;
   font-weight: 600;
   z-index: 99999;
 }
+
 
 .timer-heading {
   font-size: 1rem;
@@ -643,5 +662,121 @@ footer {
   #timer-text {
     font-size: 1.3rem;
   }
+}
+
+/* Section Styling */
+.media-section {
+  padding: 60px 20px;
+  text-align: center;
+  background: #FFF5E9;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  font-weight: 800;
+}
+
+/* Container: two columns */
+.media-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+/* Left and Right Columns */
+.media-left, .media-right {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+/* YouTube Video */
+.media-left iframe {
+  width: 100%;
+  height: 280px;
+  border-radius: 10px;
+}
+
+/* Image */
+.media-right img {
+  width: 50%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Headings */
+.media-left h3, .media-right h2 {
+  margin: 0;
+  font-weight: 700;
+}
+
+/* Buttons as text links with animated underline */
+.btn {
+  position: relative;
+  background: none;
+  border: none;
+  color: #004e98;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Create underline pseudo-element */
+.btn::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* space below text */
+  width: 0;
+  height: 2px;
+  background-color: #004e98;
+  transition: width 0.3s ease;
+}
+
+/* On hover: expand underline from left */
+.btn:hover::after {
+  width: 100%;
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .media-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .media-left iframe {
+    height: 220px;
+  }
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
