@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Church On Fire</title>
   <link rel="stylesheet" href="./style.css" />
+  <link rel="icon" type="image/png" href="./COFI LOGO-01 (1).png">
+   <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+  <meta property="og:title" content="Church On Fire">
+  <meta property="og:description" content="Church On Fire.">
+  <meta property="og:image" content="https://www.afremagazine.com/afreee.png">
   <!-- Font Awesome for social icons -->
   <link
     rel="stylesheet"
@@ -12,39 +18,61 @@
   />
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <ul class="nav-links">
-        <li><a href="#home">REVIVAL TV</a></li>
-        <li><a href="#about">ONLINE GIVING</a></li>
-        <li class="logo"><img src="./COFI LOGO 1.png" alt="Logo" /></li>
-        <li><a href="#services">EVENTS</a></li>
-        <li><a href="#contact">GALLERY</a></li>
-
-        <!-- Social icons for mobile (inside menu) -->
-        <div class="social-icons-mobile">
-          <a href="https://www.instagram.com/churchonfireinternational?igshid=YmMyMTA2M2Y%3D"><i class="fab fa-instagram"></i></a>
-         <a href="mailto:info@cofinternational.org"><i class="fas fa-envelope"></i></a>
-          <a href="https://www.facebook.com/churchonfireintl?mibextid=LQQJ4d"><i class="fab fa-facebook-f"></i></a>
-        </div>
-      </ul>
-
-      <!-- Social icons for desktop -->
-      <div class="social-icons">
-        <a href="https://www.instagram.com/churchonfireinternational?igshid=YmMyMTA2M2Y%3D"><i class="fab fa-instagram"></i></a>
-        <a href="mailto:info@cofinternational.org"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.facebook.com/churchonfireintl?mibextid=LQQJ4d"><i class="fab fa-facebook-f"></i></a>
-      </div>
-
-      <!-- Hamburger -->
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+ <nav class="navbar">
+  <div class="nav-container">
+    <!-- Logo on the left -->
+    <div class="logo">
+      <a href="#home"><img src="./COFI LOGO 1.png" alt="Logo" /></a>
     </div>
-  </nav>
+
+    <!-- Nav links for desktop -->
+    <ul class="nav-links">
+      <li><a href="#home">REVIVAL TV</a></li>
+      <li><a href="#about">ONLINE GIVING</a></li>
+      <li><a href="#services">EVENTS</a></li>
+      <li><a href="#contact">GALLERY</a></li>
+    </ul>
+
+    <!-- Social icons (desktop) -->
+    <div class="social-icons">
+      <a href="https://www.instagram.com/churchonfireinternational"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:info@cofinternational.org"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.facebook.com/churchonfireintl"><i class="fab fa-facebook-f"></i></a>
+    </div>
+
+    <!-- Hamburger (mobile only) -->
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- Mobile menu (hidden by default) -->
+  <div class="mobile-menu">
+    <ul>
+      <li><a href="#home">REVIVAL TV</a></li>
+      <li><a href="#about">ONLINE GIVING</a></li>
+      <li><a href="#services">EVENTS</a></li>
+      <li><a href="#contact">GALLERY</a></li>
+    </ul>
+
+    <!-- Social icons inside mobile menu -->
+    <div class="social-icons-mobile">
+      <a href="https://www.instagram.com/churchonfireinternational"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:info@cofinternational.org"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.facebook.com/churchonfireintl"><i class="fab fa-facebook-f"></i></a>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Timer -->
+<div id="fixed-timer">
+  <p class="timer-heading">The next event happening in</p>
+  <p id="timer-text">21:45:00</p>
+</div>
+
 
   <!-- Hero Section -->
 <section class="hero">
@@ -87,12 +115,12 @@
 
 <!-- Carousel Section -->
   <section class="carousel-section">
-    <h1>WHAT'S HAPPENING</h1>
+    <h1>WHAT'S HAPPENING?</h1>
 
     <div class="carousel-container">
       <div class="carousel-track">
         <div class="carousel-item">
-          <img src="./Black Red Edgy Sketch Rosary Prayer Christian Instagram Post.PNG" alt="Image 1">
+          <img src="./IMG_4760.jpeg" alt="Image 1">
           <h3>Men’s night vigil -<br>
             November 14, 2025</h3>
         </div>
@@ -108,8 +136,8 @@
         </div>
         <div class="carousel-item">
           <img src="./Red and White Modern Christmas Carol Service Flyer.PNG" alt="Image 4">
-          <h3>Cross over celebration  -<br>
-            December 31, 2025</h3>
+          <h3>Christmas Carol -<br>
+            December 24, 2025</h3>
         </div>
       </div>
     </div>
@@ -118,6 +146,27 @@
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
   </section>
+
+ <section class="spotify-section">
+  <h1>STAY IN THE GOSPEL TUNES</h1>
+
+  <div class="spotify-container">
+    <iframe data-testid="embed-iframe" 
+      style="border-radius:12px" 
+      src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8091X7wyurB?utm_source=generator" 
+      width="100%" 
+      height="352" 
+      frameBorder="0" 
+      allowfullscreen="" 
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+      loading="lazy">
+    </iframe>
+  </div>
+</section>
+
+
+
+
 
   <footer>
   <!-- Top Footer -->
@@ -158,18 +207,18 @@
 
 
 
+ <script>
+  // Hamburger toggle for mobile menu
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.querySelector('.mobile-menu');
 
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active'); // toggle the dropdown
+    hamburger.classList.toggle('toggle'); // animate hamburger
+  });
 
-  <script>
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      hamburger.classList.toggle('toggle');
-    });
-
-    const observer = new IntersectionObserver((entries) => {
+  // Intersection Observer (kept from previous code)
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
@@ -179,8 +228,8 @@
 
   const heroContent = document.querySelectorAll('.slide-up');
   heroContent.forEach(el => observer.observe(el));
+</script>
 
-  </script>
 
   <script>
   const infoElements = document.querySelectorAll('.slide-left, .slide-right');
@@ -266,6 +315,48 @@
       nextButton.click();
     }, 4000);
   </script>
+
+<script>
+  // Total countdown duration: 21 hours 45 minutes
+  const totalSeconds = (21 * 3600) + (45 * 60);
+
+  // Check if an end time already exists in localStorage
+  let endTime = localStorage.getItem("eventEndTime");
+
+  // If no end time stored, create one now
+  if (!endTime) {
+    endTime = Date.now() + totalSeconds * 1000;
+    localStorage.setItem("eventEndTime", endTime);
+  }
+
+  function updateTimer() {
+    const now = Date.now();
+    const timeLeft = Math.floor((endTime - now) / 1000);
+
+    // When timer finishes
+    if (timeLeft <= 0) {
+      document.getElementById("timer-text").textContent = "00:00:00";
+      return;
+    }
+
+    let hours = Math.floor(timeLeft / 3600);
+    let minutes = Math.floor((timeLeft % 3600) / 60);
+    let seconds = timeLeft % 60;
+
+    // Format numbers
+    hours = hours < 10 ? "0" + hours : hours;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    document.getElementById("timer-text").textContent = `${hours}:${minutes}:${seconds}`;
+  }
+
+  // Update every second
+  setInterval(updateTimer, 1000);
+  updateTimer();
+</script>
+
+
 
 
 
