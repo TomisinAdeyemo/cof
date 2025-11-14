@@ -780,3 +780,38 @@ footer {
   height: 100%;
 }
 
+/* Loader Fullscreen */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #FFF5E9; /* black background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+/* Logo with glowing effect */
+.loader-logo {
+  width: 150px;
+  height: auto;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+/* Glow Animation */
+@keyframes glow {
+  from {
+    filter: drop-shadow(0 0 5px #ffae42) drop-shadow(0 0 10px #ffae42);
+  }
+  to {
+    filter: drop-shadow(0 0 20px #ffae42) drop-shadow(0 0 40px #ffae42);
+  }
+}
+
+/* Initially hide timer */
+.hidden-timer {
+  display: none;
+}
