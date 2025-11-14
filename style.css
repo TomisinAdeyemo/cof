@@ -24,20 +24,25 @@ h1 {
   top: 0;
   left: 0;
   z-index: 100;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .nav-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 20px 20px;
-  position: relative;
+  padding: 15px 30px;
 }
 
-/* Nav Links */
+/* Logo */
+.logo img {
+  height: 50px;
+  width: auto;
+}
+
+/* Nav Links (desktop) */
 .nav-links {
   display: flex;
-  align-items: center;
   gap: 2rem;
   list-style: none;
 }
@@ -46,7 +51,7 @@ h1 {
   text-decoration: none;
   color: #333;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 14px;
   transition: 0.3s;
 }
 
@@ -54,15 +59,8 @@ h1 {
   color: #004e98;
 }
 
-.logo img {
-  height: 40px;
-  width: auto;
-}
-
-/* --- Social Icons (Desktop) --- */
+/* Desktop social icons */
 .social-icons {
-  position: absolute;
-  right: 40px;
   display: flex;
   gap: 1rem;
 }
@@ -70,47 +68,25 @@ h1 {
 .social-icons a {
   color: #333;
   font-size: 1.2rem;
-  transition: 0.3s ease;
+  transition: 0.3s;
 }
 
 .social-icons a:hover {
   color: #007bff;
 }
 
-/* --- Social Icons (Mobile) --- */
-.social-icons-mobile {
-  display: none;
-  margin-top: 1.5rem;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
-.social-icons-mobile a {
-  color: #333;
-  font-size: 1.5rem;
-  transition: 0.3s;
-}
-
-.social-icons-mobile a:hover {
-  color: #007bff;
-}
-
-/* --- Hamburger --- */
+/* Hamburger */
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
+  gap: 4px;
 }
 
 .hamburger span {
   height: 3px;
   width: 25px;
   background: #333;
-  margin: 4px 0;
   border-radius: 3px;
   transition: all 0.3s ease;
 }
@@ -126,38 +102,67 @@ h1 {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
+/* --- Mobile Menu --- */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: white;
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  gap: 15px;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu ul li {
+  margin: 15px 0;
+}
+
+.mobile-menu ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 700;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.mobile-menu ul li a:hover {
+  color: #004e98;
+}
+
+/* Social icons inside mobile menu */
+.social-icons-mobile {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icons-mobile a {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.social-icons-mobile a:hover {
+  color: #007bff;
+}
+
 /* --- Responsive --- */
 @media (max-width: 768px) {
-  .nav-links {
-    position: absolute;
-    top: 70px;
-    right: 0;
-    background: white;
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    display: none;
-    padding: 25px 0;
-  }
-
-  .nav-links.active {
-    display: flex;
+  .nav-links, .social-icons {
+    display: none; /* hide desktop links */
   }
 
   .hamburger {
     display: flex;
   }
 
-  .social-icons {
-    display: none; /* hide desktop icons */
-  }
-
-  .social-icons-mobile {
-    display: flex; /* show inside dropdown */
-  }
-
-  .nav-links li {
-    margin: 15px 0;
+  .mobile-menu.active {
+    display: flex;
   }
 }
 
@@ -359,7 +364,7 @@ h1 {
  .carousel-section {
       text-align: center;
       padding: 50px 20px;
-      background-color: #FFF0E0;
+      background-color: #FFF5E9;
       position: relative;
     }
 
@@ -566,3 +571,77 @@ footer {
     height: 20px;
   }
 }
+
+.spotify-section {
+  padding: 60px 20px;
+  text-align: center;
+  background: #FFF5E9;
+  color: #111;
+}
+
+.spotify-section h1 {
+  font-size: 2.5rem;
+  letter-spacing: -2px;
+  font-weight: 900;
+  margin-bottom: 30px;
+}
+
+.spotify-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .spotify-section h1 {
+    font-size: 2rem;
+  }
+
+  .spotify-container iframe {
+    height: 450px;
+  }
+}
+
+@media (max-width: 480px) {
+  .spotify-section h1 {
+    font-size: 1.7rem;
+  }
+
+  .spotify-container iframe {
+    height: 400px;
+  }
+}
+
+#fixed-timer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #FFF5E9;
+  color: #101010;
+  text-align: center;
+  padding: 10px 0;
+  font-weight: 600;
+  z-index: 99999;
+}
+
+.timer-heading {
+  font-size: 1rem;
+  opacity: 0.8;
+  margin: 0;
+}
+
+#timer-text {
+  font-size: 1.6rem;
+  margin: 3px 0 0 0;
+}
+
+@media (max-width: 480px) {
+  .timer-heading {
+    font-size: 0.9rem;
+  }
+
+  #timer-text {
+    font-size: 1.3rem;
+  }
+}
+
