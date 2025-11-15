@@ -132,6 +132,13 @@
   </div>
 </section>
 
+
+
+
+
+
+
+
 <!-- Carousel Section -->
   <section class="carousel-section">
     <h1>WHAT'S HAPPENING?</h1>
@@ -166,6 +173,13 @@
     <button class="next">&#10095;</button>
   </section>
 
+
+
+
+
+
+
+
  <section class="spotify-section">
   <h1>STAY IN THE GOSPEL TUNES</h1>
 
@@ -183,8 +197,82 @@
   </div>
 </section>
 
+
+
+
+<section class="dual-text-section">
+  <h1 class="section-title fade-in">WHO WE ARE</h1>
+
+  <div class="left-block fade-in">
+    <h2>MANDATE</h2>
+    <p>
+      Our assignment is to wipe away tears from the faces of mankind
+      and to bring humanity into God's fullness for their lives through 
+      the preaching and teaching of God's undiluted word and the demonstration
+      of his ultimate Power.
+    </p>
+  </div>
+
+   <div class="mid-line fade-in"></div>  
+
+  <div class="right-block fade-in">
+    <h2>VISION</h2>
+    <p>
+      Church on Fire International is a vibrant, culturally diverse, non-denominational 
+        church with our headquarters in Cicero, Illinois, USA under the leadership of 
+        Reverend Dr. David Philemon and Reverend Mimi Philemon. Our ministry is making a 
+        positive impact in our community through the preaching and teaching of God’s 
+        undiluted word as well as practically demonstrating God’s ultimate love and 
+        power to humanity by deploying the Apostolic & Prophetic ministry gifts entrusted to us by God!
+    </p>
+  </div>
+</section>
+
+<script src="animation.js"></script>
+
+
+
+
+
+<!--
+<section class="gallery-section">
+  <h1 style="letter-spacing: -2px;">OUR GALLERY</h1>
+  <div class="gallery-wrapper">
+    <button class="arrow left-arrow">&#10094;</button>
+    <div class="gallery-slider">
+      <img src="./525192284_18416508724099497_5611010610142053800_n.jpg" class="gallery-slide" alt="1">
+      <img src="./580713372_18433963294099497_7016416985211727436_n.jpg" class="gallery-slide" alt="2">
+      <img src="./582517350_18433963357099497_5947338174613504856_n.jpg" class="gallery-slide" alt="3">
+      <img src="./COFI-9-min-scaled.jpg" class="gallery-slide" alt="4">
+      <img src="./12.10.23-Sunday-Service-0012-min-scaled.jpg" class="gallery-slide" alt="5">
+      <img src="./John-1-5-AMP-01.10.24-0005-min-scaled.jpg" class="gallery-slide" alt="6">
+      <img src="./61RS9XVXsGL._AC_UL330_SR330,330_.jpg" class="gallery-slide" alt="7">
+      <img src="./COFI-15-min-scaled.jpg" class="gallery-slide" alt="8">
+      <img src="./COFI-40-min-scaled.jpg" class="gallery-slide" alt="9">
+      <img src="./COFI-5-min-scaled.jpg" class="gallery-slide" alt="10">
+      <img src="./Music-min-scaled.jpg" class="gallery-slide" alt="11">
+      <img src="./John-1-5-AMP-01.10.24-0005-min-scaled.jpg" class="gallery-slide" alt="12">
+      <img src="./COFI-13-min-scaled.jpg" class="gallery-slide" alt="13">
+      <img src="./COFI-34-1-min-scaled.jpg" class="gallery-slide" alt="14">
+      <img src="./COFI-31-min-scaled.jpg" class="gallery-slide" alt="15">
+      <img src="./Creative-Arts-min-1-scaled.jpg" class="gallery-slide" alt="16">
+      <img src="./out_now-1.png" class="gallery-slide" alt="17">
+      <img src="image18.jpg" class="gallery-slide" alt="18">
+      <img src="image19.jpg" class="gallery-slide" alt="19">
+      <img src="image20.jpg" class="gallery-slide" alt="20">
+    </div>
+    <button class="arrow right-arrow">&#10095;</button>
+  </div>
+</section>
+-->
+
+
+
+
+
+
 <section class="media-section">
-  <h1 class="section-title">Explore Our Media</h1>
+  <h1 class="section-title">DIVE INTO OUR MEDIA</h1>
 
   <div class="media-container">
     <!-- Left: YouTube Video -->
@@ -199,9 +287,6 @@
     Watch Now
   </button>
 </div>
-
-
-
     <!-- Right: Image -->
     <div class="media-right">
       <img src="./61RS9XVXsGL._AC_UL330_SR330,330_.jpg" alt="Media Image" />
@@ -213,6 +298,9 @@
     </div>
   </div>
 </section>
+
+
+
 
 
 
@@ -255,7 +343,8 @@
 </footer>
 
 
-
+<script src="https://cdn.jsdelivr.net/npm/ogl/dist/ogl.min.js"></script>
+  <script src="gallery.js"></script>
 
  <script>
   // Hamburger toggle for mobile menu
@@ -466,7 +555,29 @@ window.addEventListener('load', () => {
 
 </script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll(".fade-in");
 
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    },
+    {
+      threshold: 0.2,
+    }
+  );
+
+  elements.forEach((el) => observer.observe(el));
+});
+
+</script>
+
+<script src="./gallery.js"></script>
 
 </body>
 </html>
