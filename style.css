@@ -1051,3 +1051,106 @@ input, select {
   background-position: right 38px center; /* moved away from the edge */
   background-size: 16px;
 }
+
+.service-times-section {
+  background-color: #FFF5E9;
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+}
+
+.service-container {
+  width: 100%;
+  max-width: 1200px;
+  background: linear-gradient(135deg, #fff, #FFF5E9);
+  border-radius: 25px;
+  padding: 40px;
+  border: 3px solid #f7c63f;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  color: black;
+}
+
+/* Header */
+.service-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.service-header h1 {
+  font-size: 2rem;
+  letter-spacing: -2px;
+  font-weight: 900;
+}
+
+.schedule-btn {
+  background: rgba(255,255,255,0.15);
+  padding: 12px 22px;
+  border-radius: 30px;
+  border: none;
+  color: white;
+  letter-spacing: 1px;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+  transition: 0.3s ease;
+}
+
+.schedule-btn:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* Items */
+.service-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 25px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  border-radius: 12px;
+  transition: 0.3s ease;
+}
+
+.service-item:last-child {
+  border-bottom: none;
+}
+
+.service-item:hover {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(4px);
+  transform: translateY(-2px);
+}
+
+/* Text sizes */
+.service-item p {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.service-item span {
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .service-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .service-item span {
+    text-align: left;
+  }
+
+  .service-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .service-header h1 {
+    text-align: center;
+  }
+}
