@@ -1053,6 +1053,7 @@ input, select {
 }
 
 .service-times-section {
+  margin-top: 80px;
   background-color: #FFF5E9;
   display: flex;
   justify-content: center;
@@ -1124,12 +1125,12 @@ input, select {
 /* Text sizes */
 .service-item p {
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .service-item span {
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 400;
   text-align: right;
 }
 
