@@ -647,25 +647,36 @@ window.addEventListener('load', () => {
 </script>
 
 <script>
-  const sliderRow = document.querySelector(".slider-row");
+const sliderRow = document.querySelector(".slider-row");
 
+// ------------------------------------------------------
+// VARIABLES
+// ------------------------------------------------------
 let isDown = false;
 let startX;
 let scrollLeft;
+let autoScrollInterval;
+let touchStartX = 0;
 
-/* MOUSE DRAG */
+
+// ------------------------------------------------------
+// MOUSE DRAG
+// ------------------------------------------------------
 sliderRow.addEventListener("mousedown", (e) => {
   isDown = true;
+  stopAutoScroll();
   startX = e.pageX - sliderRow.offsetLeft;
   scrollLeft = sliderRow.scrollLeft;
 });
 
 sliderRow.addEventListener("mouseleave", () => {
   isDown = false;
+  startAutoScroll();
 });
 
 sliderRow.addEventListener("mouseup", () => {
   isDown = false;
+  startAutoScroll();
 });
 
 sliderRow.addEventListener("mousemove", (e) => {
@@ -673,54 +684,54 @@ sliderRow.addEventListener("mousemove", (e) => {
   e.preventDefault();
 
   const x = e.pageX - sliderRow.offsetLeft;
-  const walk = (x - startX) * 2; // drag speed
+  const walk = (x - startX) * 2;
   sliderRow.scrollLeft = scrollLeft - walk;
 });
 
 
-/* MOBILE SWIPE */
-let touchStartX = 0;
-let lastTouchX = 0;
-let velocity = 0;
-let momentumID;
-
+// ------------------------------------------------------
+// MOBILE TOUCH SWIPE
+// ------------------------------------------------------
 sliderRow.addEventListener("touchstart", (e) => {
+  stopAutoScroll();
   touchStartX = e.touches[0].clientX;
-  lastTouchX = touchStartX;
-
-  // stop ongoing momentum
-  cancelAnimationFrame(momentumID);
 });
 
 sliderRow.addEventListener("touchmove", (e) => {
-  const touchX = e.touches[0].clientX;
+  let touchX = e.touches[0].clientX;
+  let move = touchStartX - touchX;
 
-  const move = touchStartX - touchX;
-
-  // speed multiplier (increase for faster scroll)
-  sliderRow.scrollLeft += move * 3.2;
-
-  // calculate velocity for momentum
-  velocity = lastTouchX - touchX;
-  lastTouchX = touchX;
-
+  sliderRow.scrollLeft += move * 3; // swipe speed
   touchStartX = touchX;
 });
 
 sliderRow.addEventListener("touchend", () => {
-  applyMomentum();
+  startAutoScroll();
 });
 
-/* MOMENTUM FUNCTION */
-function applyMomentum() {
-  if (Math.abs(velocity) < 0.1) return;
 
-  sliderRow.scrollLeft += velocity;
-  velocity *= 0.95; // friction
+// ------------------------------------------------------
+// AUTO SCROLL SYSTEM
+// ------------------------------------------------------
+function startAutoScroll() {
+  stopAutoScroll(); // avoid duplicates
 
-  momentumID = requestAnimationFrame(applyMomentum);
+  autoScrollInterval = setInterval(() => {
+    sliderRow.scrollLeft += 3; // speed of auto-scroll
 
+    // Loop back to the start when reaching the end
+    if (sliderRow.scrollLeft + sliderRow.clientWidth >= sliderRow.scrollWidth) {
+      sliderRow.scrollLeft = 0;
+    }
+  }, 10); // smoothness interval
 }
+
+function stopAutoScroll() {
+  clearInterval(autoScrollInterval);
+}
+
+// Start auto scrolling 2 seconds after page load
+setTimeout(startAutoScroll, 2000);
 
 </script>
 
