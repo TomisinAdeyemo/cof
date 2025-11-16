@@ -35,7 +35,7 @@
     <!-- Nav links for desktop -->
     <ul class="nav-links">
       <li><a href="https://youtu.be/Sqi2kKvMNqU?si=fGH6hiL05H7h5PfN">REVIVAL TV</a></li>
-      <li><a href="#about">ONLINE GIVING</a></li>
+      <li><a href="./service-unit.html">SERVICE UNIT</a></li>
       <li><a href="#events">EVENTS</a></li>
       <li><a href="#gallery">GALLERY</a></li>
     </ul>
@@ -246,6 +246,9 @@
 </script>
 
 
+
+
+
   <script>
   const infoElements = document.querySelectorAll('.slide-left, .slide-right');
 
@@ -260,6 +263,10 @@
   infoElements.forEach(el => infoObserver.observe(el));
 </script>
 
+
+
+
+
 <script>
   const sectionObserverTarget = document.querySelector('.info-container');
 
@@ -273,6 +280,10 @@
 
   sectionRevealObserver.observe(sectionObserverTarget);
 </script>
+
+
+
+
 
 <script>
     const track = document.querySelector('.carousel-track');
@@ -353,50 +364,6 @@ window.addEventListener("load", () => {
   }, 3000);
 });
 
-// ---------------------------
-// CONTINUOUS COUNTDOWN TIMER
-// ---------------------------
-
-// 13 hours 47 minutes in ms
-const TIMER_DURATION =
-  (13 * 60 * 60 * 1000) +
-  (47 * 60 * 1000);
-
-let deadline = localStorage.getItem("siteDeadline");
-
-if (!deadline) {
-  deadline = Date.now() + TIMER_DURATION;
-  localStorage.setItem("siteDeadline", deadline);
-}
-
-deadline = parseInt(deadline);
-
-function updateTimer() {
-  const now = Date.now();
-  const timeLeft = deadline - now;
-
-  const timerText = document.getElementById("timer-text");
-
-  if (!timerText) return;
-
-  if (timeLeft <= 0) {
-    timerText.textContent = "00:00:00";
-    return;
-  }
-
-  const hours = Math.floor(timeLeft / (1000 * 60 * 60));
-  const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
-  const seconds = Math.floor((timeLeft / 1000) % 60);
-
-  timerText.textContent =
-    `${hours.toString().padStart(2, "0")}:` +
-    `${minutes.toString().padStart(2, "0")}:` +
-    `${seconds.toString().padStart(2, "0")}`;
-}
-
-setInterval(updateTimer, 1000);
-updateTimer();
-
 
 </script>
 
@@ -450,6 +417,100 @@ window.addEventListener('load', () => {
 
   elements.forEach((el) => observer.observe(el));
 });
+
+</script>
+
+<script>
+// ===============================
+// SERVICE COUNTDOWN TIMER
+// ===============================
+
+// All service times in America/New_York timezone
+const SERVICE_TIMES = [
+  { day: "Tuesday", time: "10:00 AM" },
+  { day: "Wednesday", time: "7:00 PM" },
+  { day: "Friday", time: "7:00 PM" },
+  { day: "Sunday", time: "8:30 AM" },
+  { day: "Sunday", time: "10:00 AM" }
+];
+
+const TIMEZONE = "America/New_York";
+
+function parseServiceDate(dayName, timeStr) {
+  const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  const now = new Date();
+  const todayIndex = new Date().toLocaleString("en-US", { weekday: "long", timeZone: TIMEZONE });
+
+  const targetDayIndex = days.indexOf(dayName);
+  const todayRealIndex = days.indexOf(todayIndex);
+
+  // Split time (e.g. "10:00 AM")
+  const [time, modifier] = timeStr.split(" ");
+  let [hours, minutes] = time.split(":").map(Number);
+
+  if (modifier === "PM" && hours !== 12) hours += 12;
+  if (modifier === "AM" && hours === 12) hours = 0;
+
+  // Calculate how many days ahead the target service is
+  let daysAhead = targetDayIndex - todayRealIndex;
+  if (daysAhead < 0) daysAhead += 7;
+
+  // Build service date
+  const serviceDate = new Date(
+    new Date().toLocaleString("en-US", { timeZone: TIMEZONE })
+  );
+
+  serviceDate.setDate(serviceDate.getDate() + daysAhead);
+  serviceDate.setHours(hours, minutes, 0, 0);
+
+  // If service today already passed, move to next week
+  const nowInTZ = new Date(new Date().toLocaleString("en-US", { timeZone: TIMEZONE }));
+  if (serviceDate <= nowInTZ) {
+    serviceDate.setDate(serviceDate.getDate() + 7);
+  }
+
+  return serviceDate;
+}
+
+// Get next upcoming service
+function getNextServiceDate() {
+  let soonest = null;
+
+  for (const s of SERVICE_TIMES) {
+    const d = parseServiceDate(s.day, s.time);
+    if (!soonest || d < soonest) soonest = d;
+  }
+
+  return soonest;
+}
+
+function updateCountdown() {
+  const now = new Date(new Date().toLocaleString("en-US", { timeZone: TIMEZONE }));
+  const nextService = getNextServiceDate();
+
+  const diff = nextService - now;
+
+  if (diff <= 0) {
+    // Timer passed → automatically load next service
+    document.getElementById("timer-text").textContent = "Starting now...";
+    setTimeout(() => updateCountdown(), 1000);
+    return;
+  }
+
+  const hours = Math.floor(diff / (1000 * 60 * 60));
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("timer-text").textContent =
+    `${hours.toString().padStart(2, "0")}:` +
+    `${minutes.toString().padStart(2, "0")}:` +
+    `${seconds.toString().padStart(2, "0")}`;
+
+  setTimeout(updateCountdown, 1000);
+}
+
+// Start timer
+updateCountdown();
 
 </script>
 
