@@ -1157,6 +1157,7 @@ input, select {
 }
 
 .tilt-gallery {
+  margin-top: 80px;
   width: 100%;
   padding: 60px 0;
   background: #FFF5E9;
