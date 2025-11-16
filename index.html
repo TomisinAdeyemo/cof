@@ -142,7 +142,6 @@
 
     <div class="service-header">
       <h1>SERVICE TIMES</h1>
-      <button class="schedule-btn">FULL SCHEDULE ›</button>
     </div>
 
     <div class="service-item">
@@ -652,10 +651,10 @@ const sliderRow = document.querySelector(".slider-row");
 // ------------------------------------------------------
 // VARIABLES
 // ------------------------------------------------------
-let isDown = false;
-let startX;
-let scrollLeft;
-let autoScrollInterval;
+let isDragging = false;
+let startX = 0;
+let scrollLeft = 0;
+let autoScrollTimer = null;
 let touchStartX = 0;
 
 
@@ -663,74 +662,76 @@ let touchStartX = 0;
 // MOUSE DRAG
 // ------------------------------------------------------
 sliderRow.addEventListener("mousedown", (e) => {
-  isDown = true;
+  isDragging = true;
   stopAutoScroll();
-  startX = e.pageX - sliderRow.offsetLeft;
+  startX = e.pageX;
   scrollLeft = sliderRow.scrollLeft;
 });
 
-sliderRow.addEventListener("mouseleave", () => {
-  isDown = false;
-  startAutoScroll();
+sliderRow.addEventListener("mouseup", () => {
+  isDragging = false;
+  delayedAutoScroll();
 });
 
-sliderRow.addEventListener("mouseup", () => {
-  isDown = false;
-  startAutoScroll();
+sliderRow.addEventListener("mouseleave", () => {
+  isDragging = false;
+  delayedAutoScroll();
 });
 
 sliderRow.addEventListener("mousemove", (e) => {
-  if (!isDown) return;
-  e.preventDefault();
+  if (!isDragging) return;
 
-  const x = e.pageX - sliderRow.offsetLeft;
-  const walk = (x - startX) * 2;
+  const walk = (e.pageX - startX) * 2;
   sliderRow.scrollLeft = scrollLeft - walk;
 });
 
 
 // ------------------------------------------------------
-// MOBILE TOUCH SWIPE
+// MOBILE TOUCH (RE-WRITTEN FOR SMOOTH SWIPE)
 // ------------------------------------------------------
 sliderRow.addEventListener("touchstart", (e) => {
   stopAutoScroll();
   touchStartX = e.touches[0].clientX;
+  scrollLeft = sliderRow.scrollLeft;
 });
 
 sliderRow.addEventListener("touchmove", (e) => {
-  let touchX = e.touches[0].clientX;
-  let move = touchStartX - touchX;
-
-  sliderRow.scrollLeft += move * 3; // swipe speed
-  touchStartX = touchX;
+  const currentX = e.touches[0].clientX;
+  const move = (touchStartX - currentX) * 2.5; // stronger swipe
+  sliderRow.scrollLeft = scrollLeft + move;
 });
 
 sliderRow.addEventListener("touchend", () => {
-  startAutoScroll();
+  delayedAutoScroll();
 });
 
 
 // ------------------------------------------------------
-// AUTO SCROLL SYSTEM
+// AUTO SCROLL (Smooth + No Fighting With Touch)
 // ------------------------------------------------------
 function startAutoScroll() {
-  stopAutoScroll(); // avoid duplicates
+  stopAutoScroll();
 
-  autoScrollInterval = setInterval(() => {
-    sliderRow.scrollLeft += 3; // speed of auto-scroll
+  autoScrollTimer = setInterval(() => {
+    sliderRow.scrollLeft += 1; // smoother + mobile friendly
 
-    // Loop back to the start when reaching the end
     if (sliderRow.scrollLeft + sliderRow.clientWidth >= sliderRow.scrollWidth) {
       sliderRow.scrollLeft = 0;
     }
-  }, 10); // smoothness interval
+  }, 8); // gentle continuous scroll
 }
 
 function stopAutoScroll() {
-  clearInterval(autoScrollInterval);
+  clearInterval(autoScrollTimer);
 }
 
-// Start auto scrolling 2 seconds after page load
+// Wait a moment before starting again (feels natural)
+function delayedAutoScroll() {
+  clearTimeout(autoScrollTimer);
+  setTimeout(startAutoScroll, 1200);
+}
+
+// Start auto-scroll 2 seconds after load
 setTimeout(startAutoScroll, 2000);
 
 </script>
