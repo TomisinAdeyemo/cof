@@ -680,18 +680,47 @@ sliderRow.addEventListener("mousemove", (e) => {
 
 /* MOBILE SWIPE */
 let touchStartX = 0;
+let lastTouchX = 0;
+let velocity = 0;
+let momentumID;
 
 sliderRow.addEventListener("touchstart", (e) => {
   touchStartX = e.touches[0].clientX;
+  lastTouchX = touchStartX;
+
+  // stop ongoing momentum
+  cancelAnimationFrame(momentumID);
 });
 
 sliderRow.addEventListener("touchmove", (e) => {
-  let touchX = e.touches[0].clientX;
-  let move = touchStartX - touchX;
+  const touchX = e.touches[0].clientX;
 
-  sliderRow.scrollLeft += move * 1.5; // swipe speed
+  const move = touchStartX - touchX;
+
+  // speed multiplier (increase for faster scroll)
+  sliderRow.scrollLeft += move * 3.2;
+
+  // calculate velocity for momentum
+  velocity = lastTouchX - touchX;
+  lastTouchX = touchX;
+
   touchStartX = touchX;
 });
+
+sliderRow.addEventListener("touchend", () => {
+  applyMomentum();
+});
+
+/* MOMENTUM FUNCTION */
+function applyMomentum() {
+  if (Math.abs(velocity) < 0.1) return;
+
+  sliderRow.scrollLeft += velocity;
+  velocity *= 0.95; // friction
+
+  momentumID = requestAnimationFrame(applyMomentum);
+
+}
 
 </script>
 
