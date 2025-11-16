@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Church On Fire</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="icon" type="image/png" href="./COFI LOGO-01 (1).png">
+   <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+  <meta property="og:title" content="Church On Fire">
+  <meta property="og:description" content="Church On Fire.">
+  <meta property="og:image" content="./COFI LOGO-01 (1).png">
+  <!-- Font Awesome for social icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+</head>
+<body>
+
+  <!-- Loader -->
+<div id="loader">
+  <img src="./COFI LOGO.png" alt="Logo" class="loader-logo" />
+</div>
+
+
+ <nav class="navbar">
+  <div class="nav-container">
+    <!-- Logo on the left -->
+    <div class="logo">
+      <a href="index.html"><img src="./COFI LOGO 1.png" alt="Logo" /></a>
+    </div>
+
+    <!-- Nav links for desktop -->
+    <ul class="nav-links">
+      <li><a href="https://youtu.be/Sqi2kKvMNqU?si=fGH6hiL05H7h5PfN">REVIVAL TV</a></li>
+      <li><a href="./service-unit.html">SERVICE UNIT</a></li>
+      <li><a href="#events">EVENTS</a></li>
+      <li><a href="#gallery">GALLERY</a></li>
+    </ul>
+
+    <!-- Social icons (desktop) -->
+    <div class="social-icons">
+      <a href="https://www.instagram.com/churchonfireinternational"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:info@cofinternational.org"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.facebook.com/churchonfireintl"><i class="fab fa-facebook-f"></i></a>
+    </div>
+
+    <!-- Hamburger (mobile only) -->
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- Mobile menu (hidden by default) -->
+  <div class="mobile-menu">
+    <ul>
+      <li><a href="#home">REVIVAL TV</a></li>
+      <li><a href="#about">ONLINE GIVING</a></li>
+      <li><a href="#events">EVENTS</a></li>
+      <li><a href="#gallery">GALLERY</a></li>
+    </ul>
+
+    <!-- Social icons inside mobile menu -->
+    <div class="social-icons-mobile">
+      <a href="https://www.instagram.com/churchonfireinternational"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:info@cofinternational.org"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.facebook.com/churchonfireintl"><i class="fab fa-facebook-f"></i></a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- Timer -->
+<div id="fixed-timer" class="hidden-timer">
+  <p class="timer-heading">Next Service Begins In</p>
+  <p id="timer-text">00:00:00</p>
+</div>
+
+
+
+
+
+<section class="tilt-gallery" id="gallery">
+  <h1 class="tilt-header">OUR GALLERY</h1>
+
+  <div class="slider-row">
+    <div class="tilt-card"><img src="./580713372_18433963294099497_7016416985211727436_n.jpg" /></div>
+    <div class="tilt-card"><img src="./12.10.23-Sunday-Service-0012-min-scaled.jpg" /></div>
+    <div class="tilt-card"><img src="./Creative-Arts-min-1-scaled.jpg" /></div>
+    <div class="tilt-card"><img src="./John-1-5-AMP-01.10.24-0005-min-scaled.jpg" /></div>
+    <div class="tilt-card"><img src="./Music-min-scaled.jpg" /></div>
+    <div class="tilt-card"><img src="./COFI-31-min-scaled.jpg" /></div>
+    <div class="tilt-card"><img src="./COFI-13-min-scaled.jpg" /></div>
+    <div class="tilt-card"><img src="./COFI-9-min-scaled.jpg" /></div>
+    <div class="tilt-card"><img src="./COFI-7-min-scaled.jpg" /></div>
+    <div class="tilt-card"><img src="./COFI-5-min-scaled.jpg" /></div>
+    <div class="tilt-card"><img src="./COFI-4-min-scaled.jpg" /></div>
+    <div class="tilt-card"><img src="./COFI-1-min-scaled.jpg" /></div>
+    <div class="tilt-card"><img src="./COFI-9-min-scaled.jpg" /></div>
+    <div class="tilt-card"><img src="./582517350_18433963357099497_5947338174613504856_n.jpg" /></div>
+    <div class="tilt-card"><img src="./525192284_18416508724099497_5611010610142053800_n.jpg" /></div>
+    <div class="tilt-card"><img src="./12.13.23-Miracle-Explosion-Service-0010-min-scaled.jpg" /></div>
+    <div class="tilt-card"><img src="./12.13.23-Miracle-Explosion-Service-0023-min-scaled.jpg" /></div>
+    <div class="tilt-card"><img src="./576453654_18433963339099497_8063672064257692951_n.jpg" /></div>
+    <div class="tilt-card"><img src="./575659661_18433963330099497_8803390626437776049_n.jpg" /></div>
+    <!-- Add more images as needed -->
+  </div>
+</section>
+
+
+
+
+
+
+  <footer>
+  <!-- Top Footer -->
+  <div class="footer-top">
+    <div class="footer-logo">
+      <img src="./COFI LOGO.png" alt="Logo">
+    </div>
+    <div class="footer-links">
+      <div class="footer-column">
+        <h4>Our Service</h4>
+        <ul>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="mailto:info@cofinternational.org">Contact Us</a></li>
+          <li><a href="#">Gallery</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Footer -->
+  <div class="footer-bottom">
+    <p style="font-weight: 400; font-size: .9rem;">Copyright © 2025 Church On Fire International . All Rights Reserved.</p>
+    <div class="social-links">
+      <a href="#" target="_blank"><img src="./YouTube_Symbol_1.png" alt="Youtube"></a>
+      <a href="#" target="_blank"><img src="./Symbol (1).png" alt="Facebook"></a>
+      <a href="#" target="_blank"><img src="./Instagram_Symbol_1.png" alt="Instagram"></a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/ogl/dist/ogl.min.js"></script>
+  <script src="gallery.js"></script>
+
+ <script>
+  // Hamburger toggle for mobile menu
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.querySelector('.mobile-menu');
+
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active'); // toggle the dropdown
+    hamburger.classList.toggle('toggle'); // animate hamburger
+  });
+
+  // Intersection Observer (kept from previous code)
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const heroContent = document.querySelectorAll('.slide-up');
+  heroContent.forEach(el => observer.observe(el));
+</script>
+
+
+  <script>
+  const infoElements = document.querySelectorAll('.slide-left, .slide-right');
+
+  const infoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.3 });
+
+  infoElements.forEach(el => infoObserver.observe(el));
+</script>
+
+<script>
+  const sectionObserverTarget = document.querySelector('.info-container');
+
+  const sectionRevealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        sectionObserverTarget.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  sectionRevealObserver.observe(sectionObserverTarget);
+</script>
+
+<script>
+    const track = document.querySelector('.carousel-track');
+    let items = Array.from(track.children);
+    const nextButton = document.querySelector('.next');
+    const prevButton = document.querySelector('.prev');
+    let index = 0;
+
+    // Clone items to create infinite loop
+    items.forEach(item => {
+      const clone = item.cloneNode(true);
+      track.appendChild(clone);
+    });
+    items = Array.from(track.children);
+
+    function updateCarousel() {
+      const itemWidth = items[0].getBoundingClientRect().width;
+      track.style.transform = `translateX(-${itemWidth * index}px)`;
+    }
+
+    nextButton.addEventListener('click', () => {
+      index++;
+      if (index >= items.length / 2) {
+        track.style.transition = 'none';
+        index = 0;
+        updateCarousel();
+        setTimeout(() => {
+          track.style.transition = 'transform 0.5s ease-in-out';
+          index++;
+          updateCarousel();
+        }, 50);
+      } else {
+        updateCarousel();
+      }
+    });
+
+    prevButton.addEventListener('click', () => {
+      if (index === 0) {
+        track.style.transition = 'none';
+        index = items.length / 2;
+        updateCarousel();
+        setTimeout(() => {
+          track.style.transition = 'transform 0.5s ease-in-out';
+          index--;
+          updateCarousel();
+        }, 50);
+      } else {
+        index--;
+        updateCarousel();
+      }
+    });
+
+    // Auto-slide
+    setInterval(() => {
+      nextButton.click();
+    }, 4000);
+  </script>
+
+<script>
+// ---------------------------
+// HERO VIDEO AUTOPLAY FIX
+// ---------------------------
+const heroVideo = document.querySelector(".hero-video");
+
+if (heroVideo) {
+  heroVideo.muted = true; // required for autoplay
+  heroVideo.play().catch(() => {
+    console.log("Autoplay blocked by browser.");
+  });
+}
+
+// ---------------------------
+// SITE LOADER (3 SECONDS)
+// ---------------------------
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.querySelector(".loader").style.display = "none";
+  }, 3000);
+});
+
+
+
+</script>
+
+<script>
+  // Hide loader after 3 seconds
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const loader = document.getElementById('loader');
+      loader.style.opacity = '0';
+      loader.style.transition = 'opacity 0.5s ease';
+      setTimeout(() => loader.style.display = 'none', 500); // remove after fade-out
+    }, 3000);
+  });
+</script>
+
+<script>
+  // Loader script
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  const timer = document.getElementById('fixed-timer');
+
+  setTimeout(() => {
+    // Fade out loader
+    loader.style.opacity = '0';
+    loader.style.transition = 'opacity 0.5s ease';
+    setTimeout(() => loader.style.display = 'none', 500);
+
+    // Show timer after loader
+    timer.style.display = 'block';
+  }, 3000);
+});
+
+</script>
+
+
+<script>
+  // ===============================
+// SERVICE COUNTDOWN TIMER
+// ===============================
+
+// All service times in America/New_York timezone
+const SERVICE_TIMES = [
+  { day: "Tuesday", time: "10:00 AM" },
+  { day: "Wednesday", time: "7:00 PM" },
+  { day: "Friday", time: "7:00 PM" },
+  { day: "Sunday", time: "8:30 AM" },
+  { day: "Sunday", time: "10:00 AM" }
+];
+
+const TIMEZONE = "America/New_York";
+
+function parseServiceDate(dayName, timeStr) {
+  const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  const now = new Date();
+  const todayIndex = new Date().toLocaleString("en-US", { weekday: "long", timeZone: TIMEZONE });
+
+  const targetDayIndex = days.indexOf(dayName);
+  const todayRealIndex = days.indexOf(todayIndex);
+
+  // Split time (e.g. "10:00 AM")
+  const [time, modifier] = timeStr.split(" ");
+  let [hours, minutes] = time.split(":").map(Number);
+
+  if (modifier === "PM" && hours !== 12) hours += 12;
+  if (modifier === "AM" && hours === 12) hours = 0;
+
+  // Calculate how many days ahead the target service is
+  let daysAhead = targetDayIndex - todayRealIndex;
+  if (daysAhead < 0) daysAhead += 7;
+
+  // Build service date
+  const serviceDate = new Date(
+    new Date().toLocaleString("en-US", { timeZone: TIMEZONE })
+  );
+
+  serviceDate.setDate(serviceDate.getDate() + daysAhead);
+  serviceDate.setHours(hours, minutes, 0, 0);
+
+  // If service today already passed, move to next week
+  const nowInTZ = new Date(new Date().toLocaleString("en-US", { timeZone: TIMEZONE }));
+  if (serviceDate <= nowInTZ) {
+    serviceDate.setDate(serviceDate.getDate() + 7);
+  }
+
+  return serviceDate;
+}
+
+// Get next upcoming service
+function getNextServiceDate() {
+  let soonest = null;
+
+  for (const s of SERVICE_TIMES) {
+    const d = parseServiceDate(s.day, s.time);
+    if (!soonest || d < soonest) soonest = d;
+  }
+
+  return soonest;
+}
+
+function updateCountdown() {
+  const now = new Date(new Date().toLocaleString("en-US", { timeZone: TIMEZONE }));
+  const nextService = getNextServiceDate();
+
+  const diff = nextService - now;
+
+  if (diff <= 0) {
+    // Timer passed → automatically load next service
+    document.getElementById("timer-text").textContent = "Starting now...";
+    setTimeout(() => updateCountdown(), 1000);
+    return;
+  }
+
+  const hours = Math.floor(diff / (1000 * 60 * 60));
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("timer-text").textContent =
+    `${hours.toString().padStart(2, "0")}:` +
+    `${minutes.toString().padStart(2, "0")}:` +
+    `${seconds.toString().padStart(2, "0")}`;
+
+  setTimeout(updateCountdown, 1000);
+}
+
+// Start timer
+updateCountdown();
+
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll(".fade-in");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    },
+    {
+      threshold: 0.2,
+    }
+  );
+
+  elements.forEach((el) => observer.observe(el));
+});
+
+</script>
+
+<script>
+const sliderRow = document.querySelector(".slider-row");
+
+// ------------------------------------------------------
+// VARIABLES
+// ------------------------------------------------------
+let isDragging = false;
+let startX = 0;
+let scrollLeft = 0;
+let autoScrollTimer = null;
+let touchStartX = 0;
+
+
+// ------------------------------------------------------
+// MOUSE DRAG
+// ------------------------------------------------------
+sliderRow.addEventListener("mousedown", (e) => {
+  isDragging = true;
+  stopAutoScroll();
+  startX = e.pageX;
+  scrollLeft = sliderRow.scrollLeft;
+});
+
+sliderRow.addEventListener("mouseup", () => {
+  isDragging = false;
+  delayedAutoScroll();
+});
+
+sliderRow.addEventListener("mouseleave", () => {
+  isDragging = false;
+  delayedAutoScroll();
+});
+
+sliderRow.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
+
+  const walk = (e.pageX - startX) * 2;
+  sliderRow.scrollLeft = scrollLeft - walk;
+});
+
+
+// ------------------------------------------------------
+// MOBILE TOUCH (RE-WRITTEN FOR SMOOTH SWIPE)
+// ------------------------------------------------------
+sliderRow.addEventListener("touchstart", (e) => {
+  stopAutoScroll();
+  touchStartX = e.touches[0].clientX;
+  scrollLeft = sliderRow.scrollLeft;
+});
+
+sliderRow.addEventListener("touchmove", (e) => {
+  const currentX = e.touches[0].clientX;
+  const move = (touchStartX - currentX) * 2.5; // stronger swipe
+  sliderRow.scrollLeft = scrollLeft + move;
+});
+
+sliderRow.addEventListener("touchend", () => {
+  delayedAutoScroll();
+});
+
+
+// ------------------------------------------------------
+// AUTO SCROLL (Smooth + No Fighting With Touch)
+// ------------------------------------------------------
+function startAutoScroll() {
+  stopAutoScroll();
+
+  autoScrollTimer = setInterval(() => {
+    sliderRow.scrollLeft += 1; // smoother + mobile friendly
+
+    if (sliderRow.scrollLeft + sliderRow.clientWidth >= sliderRow.scrollWidth) {
+      sliderRow.scrollLeft = 0;
+    }
+  }, 8); // gentle continuous scroll
+}
+
+function stopAutoScroll() {
+  clearInterval(autoScrollTimer);
+}
+
+// Wait a moment before starting again (feels natural)
+function delayedAutoScroll() {
+  clearTimeout(autoScrollTimer);
+  setTimeout(startAutoScroll, 1200);
+}
+
+// Start auto-scroll 2 seconds after load
+setTimeout(startAutoScroll, 2000);
+
+</script>
+
+
+</body>
+</html>
